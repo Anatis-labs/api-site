@@ -9,12 +9,9 @@ function App() {
   return (
     <>
   <Header></Header>
-    <Jumbotron></Jumbotron>
-    <Gameimport></Gameimport>
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-
-    <Footer></Footer>
+    <Jumbotron/>
+    <Gameimport/>
+    <Footer/>
 </>
   );
 }
