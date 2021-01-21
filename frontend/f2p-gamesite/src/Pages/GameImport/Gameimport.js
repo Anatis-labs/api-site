@@ -8,17 +8,18 @@ export default class Gameimport extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: {}
     };
   }
 
   componentDidMount() {
     fetch('https://localhost:44392/api/gameimport/')
-      .then(res => res.json())
-      .then(result => {
+      .then(result => result.json())
+      .then((data) => {
+        console.log(data);
         this.setState({
           isLoaded: true,
-          items: result
+          items: data
         });
       })
       .catch(error =>
@@ -39,14 +40,13 @@ export default class Gameimport extends Component {
       return (
         <>
           <div class="container">
-            <div class="row text-center">
-              <GameTemplate />
-              {this.state.Data.map((item) => (
+            <div class="row text-center">             
+              {this.state.items.map((item) => (
                 <GameTemplate
                   id={item.id}
                   title={item.title}
                   thumbnail={item.thumbnail}
-                  description={item.description}
+                  description={item.short_description}
                   game_url={item.game_url}
                   genre={item.genre}
                   platform={item.platform}
