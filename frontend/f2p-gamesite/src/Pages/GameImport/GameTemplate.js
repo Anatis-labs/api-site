@@ -14,7 +14,7 @@ export default class GameTemplate extends Component {
               <p>Publisher: {this.props.publisher}, <br/>  Developer: {this.props.developer}</p>
               <p>Release Date: {this.props.release_date}</p>
               <p class="card-text"> Game description: <br/>  {this.props.description}</p>
-              <button onclick={this.props.description}>To the game's website</button>
+              <a href={"/games/info/"+this.props.id} class="btn btn-primary btn-lg">Operator load the games!</a>            
             </div>
             <div class="card-footer">
             </div>
