@@ -1,23 +1,25 @@
 import React, { Component } from 'react'
-import {useLocation, useParams} from "react-router";
+import { useParams } from 'react-router-dom';
 
-import GameInfoTemplate from "./GameInfoTemplate.js"
+import GameTemplate from "./GameTemplate.js"
 
-export default class GameInfo extends Component {
+export default class GameImportType extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
           error: null,
           isLoaded: false,
-          items: {}
+          items: {},          
         };
       }
     
+      
+
       componentDidMount() {
-        fetch(' https://localhost:44392/api/gameinfo/')
+        fetch('https://localhost:44392/api/gameimport/'+this.props.type)
           .then(result => result.json())
           .then((data) => {
-            if(!Array.isArray(data)) data = [data];
             console.log(data);
             this.setState({
               isLoaded: true,
@@ -32,7 +34,7 @@ export default class GameInfo extends Component {
           );
       }
     
-      render() {
+      render() {        
         const { error, isLoaded, items } = this.state;
         if (error) {
           return <div class="container"><h1>Error: {error.message}</h1></div>;
@@ -42,22 +44,20 @@ export default class GameInfo extends Component {
           return (
             <>
               <div class="container">
-            <div class="row text-center">             
-              {this.state.items.map((item) => (
-                    <GameInfoTemplate
+                <div class="row text-center">             
+                  {this.state.items.map((item) => (
+                    <GameTemplate
                       id={item.id}
                       title={item.title}
                       thumbnail={item.thumbnail}
-                      status={item.status}
-                      short_description={item.short_description}
-                      description={item.short_description}                      
+                      description={item.short_description}
                       game_url={item.game_url}
                       genre={item.genre}
                       platform={item.platform}
                       publisher={item.publisher}
                       developer={item.developer}
                       release_date={item.release_date}
-                      freetogame_profile_url={item.freetogame_profile_url}                                        
+                      freetogame_profile_url={item.freetogame_profile_url}
                     />
                   ))}
                 </div>

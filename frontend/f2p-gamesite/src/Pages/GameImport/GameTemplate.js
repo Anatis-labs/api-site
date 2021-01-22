@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 export default class GameTemplate extends Component {
+  
+  
   render() {
     return (
       <>
@@ -16,7 +18,7 @@ export default class GameTemplate extends Component {
               <p class="card-text"> Game description: <br/>  {this.props.description}</p>
               <a href={"/games/info/"+this.props.id} class="btn btn-primary btn-lg">Operator load the games!</a>            
             </div>
-            <div class="card-footer">
+            <div class="card-footer">             
             </div>
           </div>
         </div>

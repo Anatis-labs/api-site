@@ -15,7 +15,8 @@ export default class GameInfoTemplate extends Component {
                   <p>Publisher: {this.props.publisher}, <br/>  Developer: {this.props.developer}</p>
                   <p>Release Date: {this.props.release_date}</p>
                   <p>Summery: {this.props.short_description}</p>
-                  <p class="card-text"> Game description: <br/>  {this.props.description}</p>                
+                  <p class="card-text"> Game description: <br/>  {this.props.description}</p>    
+
                 </div>
                 <div class="card-footer">
                 </div>
