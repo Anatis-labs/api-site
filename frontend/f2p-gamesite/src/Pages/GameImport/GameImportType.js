@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { useParams } from 'react-router-dom';
+
 
 import GameTemplate from "./GameTemplate.js"
 

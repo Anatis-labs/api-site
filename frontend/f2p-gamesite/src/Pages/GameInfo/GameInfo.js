@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {useLocation, useParams} from "react-router";
+
 
 import GameInfoTemplate from "./GameInfoTemplate.js"
 
@@ -9,12 +9,12 @@ export default class GameInfo extends Component {
         this.state = {
           error: null,
           isLoaded: false,
-          items: {}
+          items: {},
         };
       }
     
-      componentDidMount() {
-        fetch(' https://localhost:44392/api/gameinfo/')
+      componentDidMount() {  
+        fetch(' https://localhost:44392/api/gameinfo/'+this.props.match.params.GameId)
           .then(result => result.json())
           .then((data) => {
             if(!Array.isArray(data)) data = [data];
@@ -33,6 +33,7 @@ export default class GameInfo extends Component {
       }
     
       render() {
+        console.log(this.props);
         const { error, isLoaded, items } = this.state;
         if (error) {
           return <div class="container"><h1>Error: {error.message}</h1></div>;
@@ -41,8 +42,9 @@ export default class GameInfo extends Component {
         } else {
           return (
             <>
+           
               <div class="container">
-            <div class="row text-center">             
+            <div class="row text-center">                     
               {this.state.items.map((item) => (
                     <GameInfoTemplate
                       id={item.id}

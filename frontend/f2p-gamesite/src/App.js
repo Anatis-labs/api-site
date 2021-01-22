@@ -1,5 +1,5 @@
 import Header from "./Pages/header/Header.js";
-import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+import {BrowserRouter as Router,Switch,Route, match} from "react-router-dom";
 
 
 import GameInfo from "./Pages/GameInfo/GameInfo.js";
@@ -18,10 +18,9 @@ function App() {
     <Jumbotron/>
     <GameFilter/>
     <Router>
-    
     <Switch>
-    <Route path="/games/info/:id" component={GameInfo}/>
-    <Route path="/games/Shooters" render={(props) => <GameImportType type="shooters" {...props}/>}/>
+    <Route path="/gameinfo/:GameId" GameId="GameInfo"  component={GameInfo}/>
+    <Route path="/games/Shooters" render={(props) => <GameImportType type="shooter" {...props}/>}/>
     <Route path="/games/strategy" render={(props) => <GameImportType type="strategy" {...props}/>}/>
     <Route path="/games/mmorpg" render={(props) => <GameImportType type="mmorpg" {...props}/>}/>
     <Route path="/games/action" render={(props) => <GameImportType type="action" {...props}/>}/>  
