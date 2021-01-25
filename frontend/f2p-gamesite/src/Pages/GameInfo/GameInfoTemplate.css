@@ -1,0 +1,9 @@
+.bord {
+    align-items: center;
+}
+
+.stuff {
+    align-items: center;
+    align-content: center;
+    width: auto;
+}

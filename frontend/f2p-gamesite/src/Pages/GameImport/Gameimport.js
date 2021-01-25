@@ -12,6 +12,7 @@ export default class GameImport extends Component {
     };
   }
 
+ 
   componentDidMount() {
     fetch('https://localhost:44392/api/gameimport/')
       .then(result => result.json())
@@ -32,10 +33,11 @@ export default class GameImport extends Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
+  
     if (error) {
       return <div class="container"><h1>Error: {error.message}</h1></div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div class="container"><h1>Loading...</h1></div>;
     } else {
       return (
         <>

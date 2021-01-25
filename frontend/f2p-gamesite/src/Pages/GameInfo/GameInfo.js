@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 import GameInfoTemplate from "./GameInfoTemplate.js"
 
 export default class GameInfo extends Component {
@@ -10,6 +9,7 @@ export default class GameInfo extends Component {
           error: null,
           isLoaded: false,
           items: {},
+          
         };
       }
     
@@ -41,9 +41,8 @@ export default class GameInfo extends Component {
           return <div>Loading...</div>;
         } else {
           return (
-            <>
-           
-              <div class="container">
+            <>          
+            <div class="container">
             <div class="row text-center">                     
               {this.state.items.map((item) => (
                     <GameInfoTemplate
@@ -52,16 +51,26 @@ export default class GameInfo extends Component {
                       thumbnail={item.thumbnail}
                       status={item.status}
                       short_description={item.short_description}
-                      description={item.short_description}                      
+                      description={item.description}                      
                       game_url={item.game_url}
                       genre={item.genre}
                       platform={item.platform}
                       publisher={item.publisher}
                       developer={item.developer}
                       release_date={item.release_date}
-                      freetogame_profile_url={item.freetogame_profile_url}                                        
+                      freetogame_profile_url={item.freetogame_profile_url}     
+
+                      
+
+                      minimum_system_requirements_os={item.minimum_system_requirements.os}
+                      minimum_system_requirements_prossessor={item.minimum_system_requirements.processor}
+                      minimum_system_requirements_memory={item.minimum_system_requirements.memory}
+                      minimum_system_requirements_graphics={item.minimum_system_requirements.graphics}
+                      minimum_system_requirements_storage={item.minimum_system_requirements.storage}
+
+                      
                     />
-                  ))}
+                  ))}                  
                 </div>
               </div>
             </>

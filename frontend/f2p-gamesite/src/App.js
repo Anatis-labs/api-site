@@ -1,5 +1,5 @@
 import Header from "./Pages/header/Header.js";
-import {BrowserRouter as Router,Switch,Route, match} from "react-router-dom";
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 
 
 import GameInfo from "./Pages/GameInfo/GameInfo.js";
@@ -8,6 +8,7 @@ import Jumbotron from "./Pages/Jumbotron/Jumbotron";
 import Footer from "./Pages/Footer/Footer.js";
 import GameImportType from "./Pages/GameImport/GameImportType.js";
 import GameFilter from "./Pages/GameFilter/GameFilter.js";
+import startPage from "./Pages/startPage/startPage.js";
 
 function App() {
  
@@ -16,9 +17,12 @@ function App() {
     <>
   <Header/>
     <Jumbotron/>
+    <searchBox placeholder="Enter search word" handleChange={(e) => console.log(e)}/>
     <GameFilter/>
     <Router>
+
     <Switch>
+
     <Route path="/gameinfo/:GameId" GameId="GameInfo"  component={GameInfo}/>
     <Route path="/games/Shooters" render={(props) => <GameImportType type="shooter" {...props}/>}/>
     <Route path="/games/strategy" render={(props) => <GameImportType type="strategy" {...props}/>}/>
@@ -27,7 +31,7 @@ function App() {
     <Route path="/games/pvp" render={(props) => <GameImportType type="pvp" {...props}/>}/>
     <Route path="/games/strategy" component={GameImportType} />
     <Route path="/games" component={GameImport}/>  
-    <Route path="/"/>
+    <Route path="/" component={startPage}/>
     
     </Switch>
     </Router>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import searchBox from '../searchBar/searchBar.js';
 
 
 import GameTemplate from "./GameTemplate.js"
@@ -13,8 +14,6 @@ export default class GameImportType extends Component {
           items: {},          
         };
       }
-    
-      
 
       componentDidMount() {
         fetch('https://localhost:44392/api/gameimport/'+this.props.type)
@@ -34,16 +33,17 @@ export default class GameImportType extends Component {
           );
       }
     
-      render() {        
+      render() {                
         const { error, isLoaded, items } = this.state;
         if (error) {
           return <div class="container"><h1>Error: {error.message}</h1></div>;
         } else if (!isLoaded) {
-          return <div>Loading...</div>;
+          return <div class="container"><h1>Loading...</h1></div>;
         } else {
           return (
             <>
               <div class="container">
+
                 <div class="row text-center">             
                   {this.state.items.map((item) => (
                     <GameTemplate
